@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:30:09 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/08 01:08:34 by isidki           ###   ########.fr       */
+/*   Updated: 2023/05/08 20:16:05 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ char	*ft_strdup_new(char *source)
 
 	i = ft_strlen(source);
 	j = -1;
-	dst = (char *) malloc(i + 1);
+	dst = (char *) malloc(i + 2);
 	if (!dst)
 		return (NULL);
 	while (++j < i)
 		dst[j] = source[j];
 	dst[i] = '\n';
-	dst[i] = '\0';
+	dst[i + 1] = '\0';
 	return (dst);
 }
 

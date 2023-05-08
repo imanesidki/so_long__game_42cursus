@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 20:53:54 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/08 01:07:56 by isidki           ###   ########.fr       */
+/*   Updated: 2023/05/08 20:53:14 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct data
 	void	*mlx_win;
 	int		x;
 	int		y;
+	int		img_width;
+	int		img_height;
 	int		nbr_collectb;
 	int		x_player;
 	int		y_player;
