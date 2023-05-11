@@ -6,29 +6,11 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:30:09 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/08 20:16:05 by isidki           ###   ########.fr       */
+/*   Updated: 2023/05/11 02:23:11 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-char	*ft_strdup_new(char *source)
-{
-	char	*dst;
-	int		i;
-	int		j;
-
-	i = ft_strlen(source);
-	j = -1;
-	dst = (char *) malloc(i + 2);
-	if (!dst)
-		return (NULL);
-	while (++j < i)
-		dst[j] = source[j];
-	dst[i] = '\n';
-	dst[i + 1] = '\0';
-	return (dst);
-}
 
 int	nbr_lines(char *av, t_data *data)
 {

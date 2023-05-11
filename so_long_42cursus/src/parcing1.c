@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:31:15 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/08 21:44:03 by isidki           ###   ########.fr       */
+/*   Updated: 2023/05/11 02:25:05 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,18 @@ void	ft_initialize(t_data *data)
 	data->img_c = NULL;
 	data->img_0 = NULL;
 	data->img_w = NULL;
-	data->img_e = NULL;
+	data->img_e_c = NULL;
+	data->img_e_o = NULL;
 	data->img_p = NULL;
-	// data->img_height = 50;
-	// data->img_width = 50;
+	data->img_height = 0;
+	data->img_width = 0;
 	data->x = 0;
 	data->y = 0;
 	data->nbr_collectb = 0;
 	data->x_player = 0;
 	data->y_player = 0;
+	data->moves = 0;
+	data->lines = NULL;
 }
 
 void	check_wall(char **lines, t_data *data)

@@ -6,12 +6,18 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 20:53:54 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/08 20:53:14 by isidki           ###   ########.fr       */
+/*   Updated: 2023/05/11 02:56:06 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+# define D 2
+# define W 13
+# define S 1
+# define A 0
+# define ESC 53
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -30,7 +36,8 @@ typedef struct data
 	void	*img_c;
 	void	*img_0;
 	void	*img_w;
-	void	*img_e;
+	void	*img_e_c;
+	void	*img_e_o;
 	void	*img_p;
 	void	*mlx_win;
 	int		x;
@@ -40,6 +47,8 @@ typedef struct data
 	int		nbr_collectb;
 	int		x_player;
 	int		y_player;
+	int		moves;
+	char	**lines;
 }	t_data;
 
 /*******************get_next_line*******************/
@@ -66,18 +75,24 @@ void	check_rectangular(char **lines, t_data *data);
 void	check_number_characters(char **lines, t_data *data);
 int		nbr_lines(char *av, t_data *data);
 void	ft_initialize(t_data *data);
-char	**remplir_lines(char *file, int size);
 char	**remplir_lines_parsing(char *file, int size);
-char	*ft_strdup_new(char *source);
 void	position_player(char **lines, t_data *data);
 void	free_lines(char **lines);
 /*******************mlx*******************/
 /***************************************************/
 void	ft_xpm_image(t_data *data);
-void	ft_image_to_win1(char **lines, t_data *data, int i, int j);
-void	ft_image_to_win2(char **lines, t_data *data, int i, int j);
-void	ft_put_img(char **lines, t_data *data);
-void	ft_mlx(char **lines, t_data *data);
+void	ft_xpm_image2(t_data *data);
+void	ft_image_to_win1(t_data *data, int i, int j);
+void	ft_image_to_win2(t_data *data, int i, int j);
+void	ft_put_img(t_data *data);
+void	ft_mlx(t_data *data);
+int		ft_left(t_data *data);
+int		ft_down(t_data *data);
+int		ft_up(t_data *data);
+int		ft_right(t_data *data);
+int		ft_check(int key, void *param);
+int		ft_close(void *param);
+int		exit_player(t_data *data);
 /***************************************************/
 
 #endif
