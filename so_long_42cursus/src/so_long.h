@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 20:53:54 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/11 02:56:06 by isidki           ###   ########.fr       */
+/*   Updated: 2023/05/12 01:23:23 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	ft_initialize(t_data *data);
 char	**remplir_lines_parsing(char *file, int size);
 void	position_player(char **lines, t_data *data);
 void	free_lines(char **lines);
+void	ft_putnbr(int nb);
 /*******************mlx*******************/
 /***************************************************/
 void	ft_xpm_image(t_data *data);
@@ -91,6 +92,7 @@ int		ft_down(t_data *data);
 int		ft_up(t_data *data);
 int		ft_right(t_data *data);
 int		ft_check(int key, void *param);
+int		ft_open_door(t_data *data);
 int		ft_close(void *param);
 int		exit_player(t_data *data);
 /***************************************************/

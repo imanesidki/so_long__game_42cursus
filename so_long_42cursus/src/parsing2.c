@@ -6,11 +6,32 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:30:09 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/11 02:23:11 by isidki           ###   ########.fr       */
+/*   Updated: 2023/05/12 01:21:16 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	ft_open_door(t_data *data)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	if (!data->nbr_collectb)
+	{
+		while (data->lines[++i])
+		{
+			j = -1;
+			while (data->lines[i][++j])
+			{
+				if (data->lines[i][j] == 'E')
+					data->lines[i][j] = 'D';
+			}
+		}
+	}
+	return (0);
+}
 
 int	nbr_lines(char *av, t_data *data)
 {
@@ -32,73 +53,66 @@ int	nbr_lines(char *av, t_data *data)
 	return (i);
 }
 
-void	check_file_name(char *v)
+char	**remplir_lines_parsing(char *file, int size)
 {
-	int	i;
+	char	**lines;
+	char	*line;
+	int		fd;
+	int		i;
 
-	i = ft_strlen(v);
-	if (i <= 4)
-		exit_error("file_name");
-	if (!ft_strcmp(ft_strchr(v, '.'), ".ber"))
-		return ;
-	exit_error("unvalid file name");
-}
-
-int	ft_open(char *file)
-{
-	int	fd;
-
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
+	lines = (char **)malloc(sizeof(char *) * (size + 1));
+	if (!lines)
+		return (0);
+	fd = ft_open(file);
+	i = -1;
+	line = get_next_line(fd);
+	while (line)
 	{
-		write(2,"Error\n", 6);
-		write(2, "failed to open the file",23);
-		exit (0);
+		lines[++i] = ft_strdup(line);
+		free(line);
+		line = get_next_line(fd);
 	}
-	return (fd);
+	free(line);
+	lines[++i] = NULL;
+	return (lines);
 }
 
-void	check_rectangular(char **lines, t_data *data)
+void	ft_initialize(t_data *data)
 {
-	int	i;
-	int	len;
-
-	i = data->y - 1;
-	len = ft_strlen(lines[i]);
-	data->x = len;
-	while (i-- > 0)
-	{
-		len = ft_strlen(lines[i]);
-		if (len != data->x)
-			exit_error("map is not rectangular");
-	}
+	data->mlx_ptr = NULL;
+	data->img_c = NULL;
+	data->img_0 = NULL;
+	data->img_w = NULL;
+	data->img_e_c = NULL;
+	data->img_e_o = NULL;
+	data->img_p = NULL;
+	data->img_height = 0;
+	data->img_width = 0;
+	data->x = 0;
+	data->y = 0;
+	data->nbr_collectb = 0;
+	data->x_player = 0;
+	data->y_player = 0;
+	data->moves = 0;
+	data->lines = NULL;
 }
 
-void	check_number_characters(char **lines, t_data *data)
+void	position_player(char **lines, t_data *data)
 {
 	int	i;
 	int	j;
-	int	nbr_p;
-	int	nbr_e;
-	int	nbr_c;
 
-	i = data->y - 1;
-	nbr_p = 0;
-	nbr_e = 0;
-	nbr_c = 0;
-	while (--i > 0)
+	i = -1;
+	while (lines[++i])
 	{
 		j = -1;
 		while (lines[i][++j])
 		{
 			if (lines[i][j] == 'P')
-				nbr_p++;
-			if (lines[i][j] == 'E')
-				nbr_e++;
-			if (lines[i][j] == 'C')
-				data->nbr_collectb = ++nbr_c;
+			{
+				data->x_player = j;
+				data->y_player = i;
+			}
 		}
 	}
-	if (nbr_c == 0 || nbr_e > 1 || nbr_p > 1)
-		exit_error("unacceptable number of characters");
 }
