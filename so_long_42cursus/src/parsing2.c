@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:30:09 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/12 01:21:16 by isidki           ###   ########.fr       */
+/*   Updated: 2023/05/12 20:05:30 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ void	ft_initialize(t_data *data)
 	data->img_w = NULL;
 	data->img_e_c = NULL;
 	data->img_e_o = NULL;
-	data->img_p = NULL;
+	data->img_p_l = NULL;
+	data->img_p_r = NULL;
 	data->img_height = 0;
 	data->img_width = 0;
 	data->x = 0;

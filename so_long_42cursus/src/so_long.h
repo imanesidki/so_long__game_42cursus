@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 20:53:54 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/12 01:23:23 by isidki           ###   ########.fr       */
+/*   Updated: 2023/05/12 20:04:34 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ typedef struct data
 	void	*img_w;
 	void	*img_e_c;
 	void	*img_e_o;
-	void	*img_p;
+	void	*img_p_l;
+	void	*img_p_r;
 	void	*mlx_win;
 	int		x;
 	int		y;

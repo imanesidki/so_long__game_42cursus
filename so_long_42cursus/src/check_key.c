@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 00:58:38 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/12 01:00:40 by isidki           ###   ########.fr       */
+/*   Updated: 2023/05/12 20:46:31 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,14 @@ int	ft_right(t_data *data)
 {
 	if (data->lines[data->y_player][data->x_player + 1] == '0')
 	{
-		data->lines[data->y_player][data->x_player + 1] = 'P';
+		data->lines[data->y_player][data->x_player + 1] = 'R';
 		data->lines[data->y_player][data->x_player] = '0';
 		data->x_player++;
 		data->moves++;
 	}
 	else if (data->lines[data->y_player][data->x_player + 1] == 'C')
 	{
-		data->lines[data->y_player][data->x_player + 1] = 'P';
+		data->lines[data->y_player][data->x_player + 1] = 'R';
 		data->lines[data->y_player][data->x_player] = '0';
 		data->x_player++;
 		data->nbr_collectb--;

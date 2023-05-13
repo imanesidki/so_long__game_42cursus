@@ -6,16 +6,11 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:17:45 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/12 01:21:06 by isidki           ###   ########.fr       */
+/*   Updated: 2023/05/12 20:48:49 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	ft(void)
-{
-	system("leaks so_long");
-}
 
 int	ft_open(char *file)
 {
@@ -81,7 +76,6 @@ void	ft_mlx(t_data *data)
 
 int	main(int ac, char **av)
 {
-	// atexit(ft);
 	t_data	data;
 	char	**lines;
 	int		j;
