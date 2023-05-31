@@ -1,37 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing2.c                                         :+:      :+:    :+:   */
+/*   parsing3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:30:09 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/12 20:05:30 by isidki           ###   ########.fr       */
+/*   Updated: 2023/05/13 20:55:15 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	ft_open_door(t_data *data)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	if (!data->nbr_collectb)
-	{
-		while (data->lines[++i])
-		{
-			j = -1;
-			while (data->lines[i][++j])
-			{
-				if (data->lines[i][j] == 'E')
-					data->lines[i][j] = 'D';
-			}
-		}
-	}
-	return (0);
-}
 
 int	nbr_lines(char *av, t_data *data)
 {

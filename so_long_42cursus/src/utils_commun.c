@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing3.c                                         :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 01:01:28 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/12 01:16:35 by isidki           ###   ########.fr       */
+/*   Updated: 2023/05/13 20:54:55 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,33 @@ int	exit_player(t_data *data)
 	exit (0);
 }
 
-void	exit_error(char *str)
-{
-	write(1, "Error\n", 6);
-	write(1, str, ft_strlen(str));
-	write(1, "\n", 1);
-	exit (1);
-}
-
-void	free_lines(char **lines)
+int	ft_open_door(t_data *data)
 {
 	int	i;
+	int	j;
 
 	i = -1;
-	while (lines[++i])
-		free(lines[i]);
-	free(lines);
+	if (!data->nbr_collectb)
+	{
+		while (data->lines[++i])
+		{
+			j = -1;
+			while (data->lines[i][++j])
+			{
+				if (data->lines[i][j] == 'E')
+					data->lines[i][j] = 'D';
+			}
+		}
+	}
+	return (0);
+}
+
+int	ft_close(void *param)
+{
+	t_data	*data;
+
+	data = (t_data *)param;
+	free_lines(data->lines);
+	mlx_destroy_window(data->mlx_ptr, data->mlx_win);
+	exit(0);
 }

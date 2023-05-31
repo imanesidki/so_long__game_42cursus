@@ -1,65 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_main.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:17:45 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/12 20:48:49 by isidki           ###   ########.fr       */
+/*   Updated: 2023/05/13 21:32:34 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	ft_open(char *file)
-{
-	int	fd;
-
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
-	{
-		write(2, "Error\n", 6);
-		write(2, "failed to open the file", 23);
-		exit (0);
-	}
-	return (fd);
-}
-
-int	ft_close(void *param)
-{
-	t_data	*data;
-
-	data = (t_data *)param;
-	free_lines(data->lines);
-	mlx_destroy_window(data->mlx_ptr, data->mlx_win);
-	exit(0);
-}
-
-void	parsing_map(char **lines, t_data *data)
-{
-	int	i;
-	int	j;
-
-	i = data->y - 1;
-	check_wall(lines, data);
-	while (--i > 0)
-	{
-		j = -1;
-		while (lines[i][++j])
-		{
-			if (lines[i][j] != '1' && lines[i][j] != 'E' && lines[i][j] != 'P'
-			&& lines[i][j] != 'C' && lines[i][j] != '0')
-				exit_error("invalid character in map");
-		}
-	}
-	check_rectangular(lines, data);
-	check_number_characters(lines, data);
-	position_player(lines, data);
-	j = valid_path(lines, data->x_player, data->y_player, data->nbr_collectb);
-	if (j == 0)
-		exit_error("invalid path in map");
-}
 
 void	ft_mlx(t_data *data)
 {

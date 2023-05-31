@@ -4,7 +4,7 @@ BONUS_NAME := so_long_bonus
 
 SRCS := $(shell find ./src ./lib/getnextline -iname "*.c")
 
-BONUS_SRCS := $(shell find ./src_bonus -iname "*.c")
+BONUS_SRCS := $(shell find ./src_bonus ./lib/getnextline -iname "*.c") $(shell find ./src -iname "*_commun.c")
 
 OBJS := ${SRCS:.c=.o}
 
@@ -35,4 +35,4 @@ fclean : clean
 
 re : clean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all, clean, fclean, re, bonus

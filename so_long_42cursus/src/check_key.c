@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 00:58:38 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/12 20:46:31 by isidki           ###   ########.fr       */
+/*   Updated: 2023/05/13 21:34:23 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	ft_check(int key, void *param)
 		ft_down(data);
 	else if (key == 126 || key == W)
 		ft_up(data);
+	else if (key == 53)
+		ft_close(param);
 	ft_open_door(data);
 	ft_put_img(data);
 	write(1, "moves : ", 8);
