@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_key.c                                        :+:      :+:    :+:   */
+/*   check_key_commun.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 00:58:38 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/13 21:34:23 by isidki           ###   ########.fr       */
+/*   Updated: 2023/06/01 05:22:19 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	ft_up(t_data *data)
 	}
 	else if (data->lines[data->y_player - 1][data->x_player] == 'D')
 		exit_player(data);
+	else if (data->lines[data->y_player - 1][data->x_player] == 'F')
+		exit_lose_player(data);
 	return (0);
 }
 
@@ -77,6 +79,8 @@ int	ft_down(t_data *data)
 	}
 	else if (data->lines[data->y_player + 1][data->x_player] == 'D')
 		exit_player(data);
+	else if (data->lines[data->y_player + 1][data->x_player] == 'F')
+		exit_lose_player(data);
 	return (0);
 }
 
@@ -99,6 +103,8 @@ int	ft_right(t_data *data)
 	}
 	else if (data->lines[data->y_player][data->x_player + 1] == 'D')
 		exit_player(data);
+	else if (data->lines[data->y_player][data->x_player + 1] == 'F')
+		exit_lose_player(data);
 	return (0);
 }
 
@@ -121,5 +127,7 @@ int	ft_left(t_data *data)
 	}
 	else if (data->lines[data->y_player][data->x_player - 1] == 'D')
 		exit_player(data);
+	else if (data->lines[data->y_player][data->x_player - 1] == 'F')
+		exit_lose_player(data);
 	return (0);
 }

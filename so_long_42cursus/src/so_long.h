@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 20:53:54 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/31 05:51:31 by isidki           ###   ########.fr       */
+/*   Updated: 2023/06/01 05:23:50 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int		ft_check(int key, void *param);
 int		ft_open_door(t_data *data);
 int		ft_close(void *param);
 int		exit_player(t_data *data);
+int		exit_lose_player(t_data *data);
 /***************************************************/
 
 #endif
