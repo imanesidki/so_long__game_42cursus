@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 21:40:13 by isidki            #+#    #+#             */
-/*   Updated: 2023/06/04 14:19:02 by isidki           ###   ########.fr       */
+/*   Updated: 2023/06/04 15:29:02 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@ int	ft_frame(void *param)
 {
 	t_data		*data;
 	static int	inc;
+	char		*moves;
 
 	data = (t_data *)param;
-	if (inc < 400)
+	if (inc < 800)
 		inc++;
 	else
 	{
@@ -48,8 +49,10 @@ int	ft_frame(void *param)
 		ft_put_img_bonus(data);
 		if (data->moves > 0)
 		{
+			moves = ft_itoa(data->moves);
 			mlx_string_put(data->mlx_ptr, data->mlx_win, 0, 0, 0xffffff,
-				ft_itoa(data->moves));
+				moves);
+			free(moves);
 		}
 	}
 	return (0);

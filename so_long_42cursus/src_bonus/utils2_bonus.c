@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 05:53:35 by isidki            #+#    #+#             */
-/*   Updated: 2023/06/04 13:55:39 by isidki           ###   ########.fr       */
+/*   Updated: 2023/06/04 15:31:08 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	ft_xpm_enemy_frames(t_data *data)
 				filename, &data->img_width, &data->img_height);
 		free (filename1);
 		free (filename);
+		free (a);
 		if (!data->img_enemy_frames[i])
 			exit_error("error in openning enemy frame image");
 	}
