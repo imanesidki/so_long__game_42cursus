@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 00:58:38 by isidki            #+#    #+#             */
-/*   Updated: 2023/06/01 05:22:19 by isidki           ###   ########.fr       */
+/*   Updated: 2023/06/04 14:37:14 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 int	ft_check(int key, void *param)
 {
 	t_data	*data;
+	int		i;
 
 	data = (t_data *)param;
+	i = data->moves;
 	mlx_clear_window(data->mlx_ptr, data->mlx_win);
 	if (key == 123 || key == A)
 		ft_left(data);
@@ -30,9 +32,7 @@ int	ft_check(int key, void *param)
 		ft_close(param);
 	ft_open_door(data);
 	ft_put_img(data);
-	write(1, "moves : ", 8);
-	ft_putnbr(data->moves);
-	write(1, "\n", 1);
+	print_moves(data, i);
 	return (0);
 }
 

@@ -6,19 +6,11 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 05:53:35 by isidki            #+#    #+#             */
-/*   Updated: 2023/06/01 05:59:37 by isidki           ###   ########.fr       */
+/*   Updated: 2023/06/04 13:55:39 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
-
-int	exit_lose_player(t_data *data)
-{
-	write(1, "You Lost The Game !\n", 20);
-	mlx_clear_window(data->mlx_ptr, data->mlx_win);
-	free_lines(data->lines);
-	exit (0);
-}
 
 void	ft_put_img_bonus(t_data *data)
 {
@@ -43,17 +35,16 @@ void	ft_put_img_bonus(t_data *data)
 
 void	ft_image_to_win_bonus(t_data *data, int i, int j)
 {
-	int	frame;
-
-	frame = -1;
 	if (data->lines[i][j] == 'F')
 	{
-		while (++frame < 23)
-		{
-			if (mlx_put_image_to_window(data->mlx_ptr, data->mlx_win,
-					data->img_enemy_frames[frame], j * 50, i * 50) < 0)
-				exit_error("mlx_error");
-		}
+		if (data->num_frame < 23)
+			data->num_frame++;
+		else
+			data->num_frame = 0;
+		if (mlx_put_image_to_window(data->mlx_ptr, data->mlx_win,
+				data->img_enemy_frames[data->num_frame],
+				j * 50, i * 50) < 0)
+			exit_error("mlx_error");
 	}
 }
 

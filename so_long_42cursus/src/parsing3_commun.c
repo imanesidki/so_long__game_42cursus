@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:30:09 by isidki            #+#    #+#             */
-/*   Updated: 2023/06/01 03:39:03 by isidki           ###   ########.fr       */
+/*   Updated: 2023/06/04 14:37:42 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	ft_initialize(t_data *data)
 	data->img_width = 0;
 	data->x = 0;
 	data->y = 0;
+	data->num_frame = 0;
 	data->nbr_collectb = 0;
 	data->x_player = 0;
 	data->y_player = 0;
@@ -94,5 +95,15 @@ void	position_player(char **lines, t_data *data)
 				data->y_player = i;
 			}
 		}
+	}
+}
+
+void	print_moves(t_data *data, int i)
+{
+	if (data->moves > i)
+	{
+		write(1, "moves : ", 8);
+		ft_putnbr(data->moves);
+		write(1, "\n", 1);
 	}
 }

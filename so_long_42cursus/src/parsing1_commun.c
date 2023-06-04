@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing1.c                                         :+:      :+:    :+:   */
+/*   parsing1_commun.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:31:15 by isidki            #+#    #+#             */
-/*   Updated: 2023/05/13 20:55:20 by isidki           ###   ########.fr       */
+/*   Updated: 2023/06/01 07:34:59 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,12 @@ void	exit_error(char *str)
 	write(1, str, ft_strlen(str));
 	write(1, "\n", 1);
 	exit (1);
+}
+
+int	exit_lose_player(t_data *data)
+{
+	write(1, "You Lost The Game !\n", 20);
+	mlx_clear_window(data->mlx_ptr, data->mlx_win);
+	free_lines(data->lines);
+	exit (0);
 }

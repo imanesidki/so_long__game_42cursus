@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 20:53:54 by isidki            #+#    #+#             */
-/*   Updated: 2023/06/01 05:23:50 by isidki           ###   ########.fr       */
+/*   Updated: 2023/06/04 14:38:19 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct data
 	int		y_player;
 	int		moves;
 	char	**lines;
+	int		num_frame;
 }	t_data;
 
 /*******************get_next_line*******************/
@@ -98,6 +99,7 @@ int		ft_open_door(t_data *data);
 int		ft_close(void *param);
 int		exit_player(t_data *data);
 int		exit_lose_player(t_data *data);
+void	print_moves(t_data *data, int i);
 /***************************************************/
 
 #endif

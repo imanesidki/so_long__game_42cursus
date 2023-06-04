@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 21:40:13 by isidki            #+#    #+#             */
-/*   Updated: 2023/06/01 05:59:28 by isidki           ###   ########.fr       */
+/*   Updated: 2023/06/04 14:19:02 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,23 @@ int	ft_check_bonus(int key, void *param)
 
 int	ft_frame(void *param)
 {
-	t_data	*data;
+	t_data		*data;
+	static int	inc;
 
 	data = (t_data *)param;
-	mlx_clear_window(data->mlx_ptr, data->mlx_win);
-	ft_put_img_bonus(data);
-	mlx_string_put(data->mlx_ptr, data->mlx_win, 0, 0, 0xffffff,
-		ft_itoa(data->moves));
+	if (inc < 400)
+		inc++;
+	else
+	{
+		inc = 0;
+		mlx_clear_window(data->mlx_ptr, data->mlx_win);
+		ft_put_img_bonus(data);
+		if (data->moves > 0)
+		{
+			mlx_string_put(data->mlx_ptr, data->mlx_win, 0, 0, 0xffffff,
+				ft_itoa(data->moves));
+		}
+	}
 	return (0);
 }
 
@@ -53,12 +63,11 @@ void	ft_mlx_bonus(t_data *data)
 	data->mlx_win = mlx_new_window(data->mlx_ptr,
 			data->x * 50, data->y * 50, "Demon Slayer");
 	ft_put_img_bonus(data);
-	mlx_loop_hook(data->mlx_ptr, &ft_frame, data);
-	mlx_hook(data->mlx_win, 2, 0, &ft_check_bonus, data);
-	mlx_hook(data->mlx_win, 17, 0, &ft_close, data);
+	mlx_hook(data->mlx_win, 2, 0, ft_check_bonus, data);
+	mlx_hook(data->mlx_win, 17, 0, ft_close, data);
+	mlx_loop_hook(data->mlx_ptr, ft_frame, data);
 	mlx_loop(data->mlx_ptr);
 }
-
 
 int	main(int ac, char **av)
 {

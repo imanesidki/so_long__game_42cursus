@@ -6,7 +6,7 @@
 /*   By: isidki <isidki@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 01:01:28 by isidki            #+#    #+#             */
-/*   Updated: 2023/06/01 05:18:24 by isidki           ###   ########.fr       */
+/*   Updated: 2023/06/01 08:03:39 by isidki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_putnbr(int nb)
 
 int	exit_player(t_data *data)
 {
-	write(1, "Win !\n", 6);
+	write(1, "You Win The Game !\n", 19);
 	mlx_clear_window(data->mlx_ptr, data->mlx_win);
 	free_lines(data->lines);
 	exit (0);
