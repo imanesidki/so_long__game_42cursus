@@ -1,4 +1,4 @@
-# so_long__game_42cursus
+# 2D-Game
 
 ## This project is a small 2D game using MiniLibX Library.
 
